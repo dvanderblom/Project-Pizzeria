@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inloggen{% endblock %}
+
+{% block body %}
+<h4>Alle bestellingen</h4><br><br>
+
+<table class="table" style="margin-bottom: -125px">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Pizza</th>
+      <th scope="col">Formaat</th>
+      <th scope="col">Klant</th>
+      <th scope="col">Adres</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for order in orders %} 
+    <tr>
+      <th scope="row">{{ order.id }}</th>
+      <td>{{ order.pizza }}</td>
+      <td>{{ order.size|capitalize }}</td>
+      <td>{{ order.customer }}</td>
+      <td>{{ order.adress }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>  
+
+{% endblock %}
+

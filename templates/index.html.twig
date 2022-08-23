@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Project Pizza{% endblock %}
+
+{% block body %}
+  <div class="categories">
+    <div class="row">
+    {% for category in categories %}
+    
+      <div class="col-md-4">
+        <a href="/categorieën/{{ category.title|lower }}" class="card"> 
+          <div class="card-body"> 
+            <h4>{{ category.title }}</h4>
+            <img src="{{ category.image }}">
+          </div>
+        </a>  
+      </div>    
+
+    {% endfor %}
+    </div>
+  </div>
+
+  <style>
+    .categories {
+      margin-top: 100px;
+      margin-bottom: -450px;
+    }
+
+    .card {
+     height: 400px; 
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+      text-align: center
+    }
+
+    a:hover {
+      color: black;
+      cursor: pointer;
+    }
+    img {
+      height: 330px;
+      width: 380px;
+      border-radius: 3px;
+    }
+  </style>
+{% endblock %}

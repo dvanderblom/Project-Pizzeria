@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bestelling afronden{% endblock %}
+
+{% block body %}
+<form action="/overzicht" method="post">
+  <h1>Bestelling afronden</h1><br><br>  
+  <label for="pizza">Pizza:</label><br>
+  <input readonly class="form-control" name="pizza" value="{{ pizza }}" style="width: 600px"><br>
+
+  <label for="formaat">Formaat:</label><br>
+  <select class="form-control" name="size" style="width: 600px">
+    {% for size in sizes %}
+      <option name="{{ size.size }}" value="{{ size.size|capitalize }}">{{ size.size|capitalize }}</option>
+    {% endfor %}
+  </select><br><br>
+
+  <input class="form-control" name="fullname" style="width: 600px" placeholder="Volledige Naam"><br>
+  <input class="form-control" name="adress" style="width: 600px" placeholder="Adres"><br><br>
+  <button class="btn btn-primary" type="submit" name="button">Bestellen</buton>
+</form>
+
+<style>
+  form {
+   margin-top: 50px;
+   margin-left: 350px;
+   margin-bottom: -500px;
+  }
+
+  h1 {
+    margin-left: 120px;
+  }
+
+  input, select {
+    width: 800px;
+  }
+
+  button {
+    margin-left: 250px;
+  }
+</style>
+{% endblock %}
+

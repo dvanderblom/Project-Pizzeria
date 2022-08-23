@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bestellen{% endblock %}
+
+{% block body %}
+<div class="pizzas">
+  <div class="row">
+  {% for pizza in pizzas %}
+    <div class="col-md-4">
+      <form action="/order" method="post">
+        <button name="pizza" class="card" value="{{ pizza.name }}" type="submit"> 
+          <div class="card-body"> 
+            <h4>{{ pizza.name }}</h4>
+            <img src="{{ pizza.image }}">
+          </div>
+        </button>  
+      </form>
+    </div> 
+  {% endfor %}
+  </div>
+</div>
+<style>
+    .pizzas {
+      margin-top: 100px;
+      margin-bottom: -300px;
+    }
+
+    .card {
+     height: 400px; 
+     width: 400px;
+     margin-bottom: -180px;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: black;
+      cursor: pointer;
+    }
+
+    img {
+      height: 330px;
+      width: 370px;
+      border-radius: 3px;
+      margin-left: -7px;
+    }
+  </style>
+{% endblock %}
+
